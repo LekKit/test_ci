@@ -30,9 +30,7 @@ jobs:
         uses: github/codeql-action/init@v2
         with:
           languages: ${{ matrix.language }}
-          queries:
-            +security-and-quality
-            -cpp/commented-out-code
+          queries: +security-and-quality, -cpp/commented-out-code
 
       - name: Autobuild
         uses: github/codeql-action/autobuild@v2
