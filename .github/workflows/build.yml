@@ -14,8 +14,6 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build Release
       run: make
-    - name: Run Cppcheck
-      run: make cppcheck
     - name: Upload Artifact
       uses: actions/upload-artifact@v3.1.1
       with:
@@ -26,7 +24,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
-    - uses: egor-tensin/setup-mingw@v2
+    - name: Set up MinGW
+      uses: egor-tensin/setup-mingw@v2
+      with:
+        platform: x64
     - name: Build Release
       run: make CC=x86-64-w64-mingw32-gcc
     - name: Upload Artifact
