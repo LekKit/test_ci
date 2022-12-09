@@ -1,4 +1,4 @@
-name: RVVM Build CI
+name: Build
 
 on:
   push:
