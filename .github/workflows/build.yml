@@ -29,7 +29,7 @@ jobs:
       with:
         platform: x64
     - name: Build Release
-      run: make CC=x86-64-w64-mingw32-gcc
+      run: make CC=x86_64-w64-mingw32-gcc
     - name: Upload Artifact
       uses: actions/upload-artifact@v3.1.1
       with:
