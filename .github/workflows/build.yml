@@ -1,0 +1,49 @@
+name: RVVM Build CI
+
+on:
+  push:
+    branches: [ "staging" ]
+  pull_request:
+    branches: [ "staging" ]
+
+jobs:
+  linux-build:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build Release
+      run: make
+    - name: Run Cppcheck
+      run: make cppcheck
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3.1.1
+      with:
+        name: rvvm_linux_x86_64
+        path: release.linux.x86_64/rvvm_x86_64
+
+  win32-build:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v3
+    - uses: egor-tensin/setup-mingw@v2
+    - name: Build Release
+      run: make CC=x86-64-w64-mingw32-gcc
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3.1.1
+      with:
+        name: rvvm_win32_x86_64.exe
+        path: release.windows.x86_64/rvvm_x86_64.exe
+        
+  macos-build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install SDL
+        run: brew install sdl12-compat
+      - name: Build Release
+        run: make
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: rvvm_darwin_x86_64
+          path: release.darwin.x86_64/rvvm_x86_64
