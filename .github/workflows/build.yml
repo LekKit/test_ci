@@ -26,6 +26,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build Release
       run: make CC="C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/gcc.exe"
+      shell: bash
     - name: Upload Artifact
       uses: actions/upload-artifact@v3.1.1
       with:
