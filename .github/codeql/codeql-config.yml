@@ -4,4 +4,9 @@ queries:
   - uses: security-and-quality
 query-filters:
   - exclude:
+      id: cpp/path-injection
       id: cpp/commented-out-code
+      id: cpp/long-switch
+      id: cpp/equality-on-floats
+      id: cpp/include-non-header
+      id: 
