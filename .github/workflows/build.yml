@@ -22,7 +22,9 @@ jobs:
           release.linux.x86_64/rvvm_x86_64
           release.linux.x86_64/librvvm.so
     - name: Set up ARM64 GCC
-      run: sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends gcc-aarch64-linux-gnu libx11-dev:arm64
+      run: |
+        sudo dpkg --add-architecture arm64
+        sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends gcc-aarch64-linux-gnu libx11-dev:arm64
     - name: Build Release arm64
       run: make CC=aarch64-linux-gnu-gcc lib all
     - name: Upload Artifact arm64
