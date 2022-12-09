@@ -459,7 +459,7 @@ DIRS := $(sort $(BUILDDIR) $(OBJDIR) $(dir $(OBJS)))
 ifeq ($(HOST_POSIX),1)
 $(shell mkdir -p $(DIRS))
 else
-$(shell mkdir $(subst /,\\, $(DIRS)) $(NULL_STDERR))
+$(shell mkdir $(subst /,\\, $(DIRS)))
 endif
 
 # Check previous buildflags
