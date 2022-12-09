@@ -43,7 +43,7 @@ jobs:
       - name: Build Release
         run: make
       - name: Upload Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3.1.1
         with:
           name: rvvm_darwin_x86_64
           path: release.darwin.x86_64/rvvm_x86_64
