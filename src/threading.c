@@ -276,7 +276,6 @@ static bool thread_queue_task(thread_func_t func, void* arg, unsigned arg_count)
             //rvvm_info("Threadpool worker %p notified", &threadpool[i]);
             threadpool[i].func = func;
             if (arg_count) {
-                if (arg_count > THREAD_MAX_VA_ARGS) return false;
                 memcpy(threadpool[i].arg, arg, sizeof(void*) * arg_count);
             } else {
                 threadpool[i].arg[0] = arg;
@@ -306,7 +305,11 @@ void thread_create_task(thread_func_t func, void* arg)
 
 void thread_create_task_va(thread_func_va_t func, void** args, unsigned arg_count)
 {
-    if (arg_count == 0 || !thread_queue_task((thread_func_t)(void*)func, args, arg_count)) {
+    if (arg_count == 0 || arg_count > THREAD_MAX_VA_ARGS) {
+        rvvm_warn("Invalid arg count in thread_create_task_va()!");
+        return;
+    }
+    if (!thread_queue_task((thread_func_t)(void*)func, args, arg_count)) {
         func(args);
     }
 }
