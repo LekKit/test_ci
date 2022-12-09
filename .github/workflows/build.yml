@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build Release
-      run: make TERM=linux
+      run: make
     - name: Upload Artifact
       uses: actions/upload-artifact@v3.1.1
       with:
@@ -25,9 +25,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set up MinGW
-      run: sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends mingw-w64
+      run: sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends gcc-mingw-w64-x86-64-win32
     - name: Build Release
-      run: make TERM=linux CC=x86_64-w64-mingw32-gcc
+      run: make CC=x86_64-w64-mingw32-gcc
     - name: Upload Artifact
       uses: actions/upload-artifact@v3.1.1
       with:
@@ -41,7 +41,7 @@ jobs:
       - name: Install SDL
         run: brew install sdl12-compat
       - name: Build Release
-        run: make TERM=linux
+        run: make
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
