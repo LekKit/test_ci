@@ -24,10 +24,8 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
-    - name: FUCKING MINGW WHERE IS IT???
-      run: dir "C:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\"
     - name: Build Release
-      run: make
+      run: make CC="C:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/bin/gcc.exe"
     - name: Upload Artifact
       uses: actions/upload-artifact@v3.1.1
       with:
