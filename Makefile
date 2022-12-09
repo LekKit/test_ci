@@ -456,11 +456,10 @@ DEPS := $(OBJS:.o=.d)
 DIRS := $(sort $(BUILDDIR) $(OBJDIR) $(dir $(OBJS)))
 
 # Create directories for object files
-$(info Creating dirs $(DIRS))
 ifeq ($(HOST_POSIX),1)
 $(shell mkdir -p $(DIRS))
 else
-$(foreach DIR,$(DIRS),$(shell mkdir $(subst /,\\, $(DIR)) $(NULL_STDERR)))
+$(shell mkdir $(subst /,\\, $(DIRS)))
 endif
 
 # Check previous buildflags
