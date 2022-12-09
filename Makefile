@@ -8,7 +8,7 @@ ifeq ($(OS),Windows_NT)
 # Passed by MinGW/Cygwin Make on Windows hosts
 override OS := $(CROSS_OS)
 HOST_WINDOWS := 1
-NULL_STDERR := 3>&0 2>&3
+NULL_STDERR := 2>NUL
 HOST_UNAME := Windows
 HOST_CPUS := $(firstword $(NUMBER_OF_PROCESSORS) 1)
 ifeq ($(PROCESSOR_ARCHITECTURE),AMD64)
@@ -344,9 +344,9 @@ else
 ifeq ($(OS),windows)
 SRC += $(SRCDIR)/devices/win32window.c
 override CFLAGS += -DUSE_FB
-ifneq (,$(findstring main, $(shell $(CC) $(CFLAGS) $(LDFLAGS) -lgdi32 2>&1)))
+#ifneq (,$(findstring main, $(shell $(CC) $(CFLAGS) $(LDFLAGS) -lgdi32 2>&1)))
 override LDFLAGS += -lgdi32
-endif
+#endif
 else
 
 # Xlib Window
@@ -459,7 +459,7 @@ DIRS := $(sort $(BUILDDIR) $(OBJDIR) $(dir $(OBJS)))
 ifeq ($(HOST_POSIX),1)
 $(shell mkdir -p $(DIRS))
 else
-$(shell mkdir $(subst /,\\, $(DIRS)) $(NULL_STDERR))
+$(shell mkdir $(subst /,\\, $(DIRS)))
 endif
 
 # Check previous buildflags
