@@ -24,8 +24,10 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Set PATH
+      run: echo "C:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\" >> $GITHUB_PATH
     - name: Build Release
-      run: make CC=C:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\cc.exe
+      run: make
     - name: Upload Artifact
       uses: actions/upload-artifact@v3.1.1
       with:
