@@ -275,12 +275,9 @@ static bool thread_queue_task(thread_func_t func, void* arg, unsigned arg_count)
         if (!atomic_swap_uint32(&threadpool[i].busy, 1)) {
             //rvvm_info("Threadpool worker %p notified", &threadpool[i]);
             threadpool[i].func = func;
-            if (arg_count) {
-                memcpy(threadpool[i].arg, arg, sizeof(void*) * arg_count);
-            } else {
-                threadpool[i].arg[0] = arg;
-            }
             threadpool[i].func_va = !!arg_count;
+            if (!arg_count) arg_count = 1;
+            memcpy(threadpool[i].arg, arg, sizeof(void*) * arg_count);
             if (!threadpool[i].thread) {
                 threadpool[i].cond = condvar_create();
                 threadpool[i].thread = thread_create(threadpool_worker, &threadpool[i]);
@@ -298,7 +295,7 @@ static bool thread_queue_task(thread_func_t func, void* arg, unsigned arg_count)
 
 void thread_create_task(thread_func_t func, void* arg)
 {
-    if (!thread_queue_task(func, arg, 0)) {
+    if (!thread_queue_task(func, &arg, 0)) {
         func(arg);
     }
 }
@@ -307,9 +304,8 @@ void thread_create_task_va(thread_func_va_t func, void** args, unsigned arg_coun
 {
     if (arg_count == 0 || arg_count > THREAD_MAX_VA_ARGS) {
         rvvm_warn("Invalid arg count in thread_create_task_va()!");
+    } else if (thread_queue_task((thread_func_t)(void*)func, args, arg_count)) {
         return;
     }
-    if (!thread_queue_task((thread_func_t)(void*)func, args, arg_count)) {
-        func(args);
-    }
+    func(args);
 }
