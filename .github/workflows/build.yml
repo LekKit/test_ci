@@ -24,8 +24,8 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Set PATH
-      run: echo "C:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\" >> $GITHUB_PATH
+    - name: FUCKING MINGW WHERE IS IT???
+      run: dir "C:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\"
     - name: Build Release
       run: make
     - name: Upload Artifact
