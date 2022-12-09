@@ -12,15 +12,26 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
-    - name: Build Release
+    - name: Build Release x86_64
       run: make lib all
-    - name: Upload Artifact
+    - name: Upload Artifact x86_64
       uses: actions/upload-artifact@v3.1.1
       with:
         name: rvvm_linux_x86_64
         path: |
           release.linux.x86_64/rvvm_x86_64
           release.linux.x86_64/librvvm.so
+    - name: Set up ARM64 GCC
+      run: sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends gcc-aarch64-linux-gnu libx11-dev:arm64
+    - name: Build Release arm64
+      run: make CC=aarch64-linux-gnu-gcc lib all
+    - name: Upload Artifact arm64
+      uses: actions/upload-artifact@v3.1.1
+      with:
+        name: rvvm_linux_arm64
+        path: |
+          release.linux.arm64/rvvm_arm64
+          release.linux.arm64/librvvm.so
 
   win32-build:
     runs-on: ubuntu-22.04
