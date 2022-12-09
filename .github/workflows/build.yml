@@ -21,15 +21,11 @@ jobs:
         path: release.linux.x86_64/rvvm_x86_64
 
   win32-build:
-    runs-on: ubuntu-22.04
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Set up MinGW
-      uses: egor-tensin/setup-mingw@v2
-      with:
-        platform: x64
     - name: Build Release
-      run: make CC=x86_64-w64-mingw32-gcc
+      run: make
     - name: Upload Artifact
       uses: actions/upload-artifact@v3.1.1
       with:
