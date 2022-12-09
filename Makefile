@@ -456,11 +456,7 @@ DEPS := $(OBJS:.o=.d)
 DIRS := $(sort $(BUILDDIR) $(OBJDIR) $(dir $(OBJS)))
 
 # Create directories for object files
-ifeq ($(HOST_POSIX),1)
 $(shell mkdir -p $(DIRS))
-else
-$(shell mkdir $(subst /,\\, $(DIRS)))
-endif
 
 # Check previous buildflags
 CFLAGS_TXT := $(OBJDIR)/cflags.txt
