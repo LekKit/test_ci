@@ -8,7 +8,7 @@ ifeq ($(OS),Windows_NT)
 # Passed by MinGW/Cygwin Make on Windows hosts
 override OS := $(CROSS_OS)
 HOST_WINDOWS := 1
-#NULL_STDERR := 2>NUL
+NULL_STDERR := 3>&0 2>&3
 HOST_UNAME := Windows
 HOST_CPUS := $(firstword $(NUMBER_OF_PROCESSORS) 1)
 ifeq ($(PROCESSOR_ARCHITECTURE),AMD64)
