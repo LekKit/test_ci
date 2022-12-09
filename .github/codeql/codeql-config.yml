@@ -9,4 +9,3 @@ query-filters:
       id: cpp/long-switch
       id: cpp/equality-on-floats
       id: cpp/include-non-header
-      id: 
