@@ -9,6 +9,7 @@
 RISC-V CPU & System software implementation written in С
 
 ## What's working
+[![Demo](https://img.shields.io/badge/Check%20it%20out-WASM%20Demo-red?style=for-the-badge)](https://lekkit.github.io/test/index.html)
 - Passes RISC-V compliance/torture tests for both RV64 & RV32
 - OpenSBI, U-Boot, custom firmwares boot and execute properly
 - Working Linux, FreeBSD, OpenBSD & other cool guest OSes
@@ -102,7 +103,7 @@ Invoke "./rvvm -h" to see extended help.
 | Emscripten | -                          | SDL          |
 
 ## Contributions
-[![PRs are welcome](https://img.shields.io/badge/Pull%20requests-welcome-8957e5?style=for-the-badge)](https://github.com/LekKit/RVVM/pulls?q=is%3Apr+is%3Aclosed)
+[![PRs are welcome](https://img.shields.io/badge/Pull%20requests-welcome-8957e5?style=for-the-badge&logo=github)](https://github.com/LekKit/RVVM/pulls?q=is%3Apr+is%3Aclosed)
 |                      | Achievments | Working on |
 |----------------------|-------------|------------|
 | **LekKit**           | RVVM API & codebase infrastructure <br> RV64IMAFDC interpreter, IRQ/MMU/Priv <br> RVJIT Compiler, X86/RISC-V backends <br> NVMe, ACLINT, UART, I2C, graphics <br> Rework of PCIe, Ethernet, PS/2 | Networking, Userspace emulation |
