@@ -35,7 +35,7 @@ RISC-V CPU & System software implementation written in С
 - ATA hard drive (PIO / IDE PCI), *deprecated*
 
 ## Installing
-[![Artifacts](https://img.shields.io/badge/BIN-Artifacts-orange?style=for-the-badge)](https://nightly.link/LekKit/test_ci/workflows/build/staging) [![AUR](https://img.shields.io/badge/Arch%20Linux-AUR-blue?style=for-the-badge&logo=archlinux)](https://aur.archlinux.org/) [![Build](https://img.shields.io/badge/Build-Make-red?style=for-the-badge)](#building)
+[![Artifacts](https://img.shields.io/badge/BIN-Artifacts-orange?style=for-the-badge)](https://nightly.link/LekKit/RVVM/workflows/build/staging) [![AUR](https://img.shields.io/badge/Arch%20Linux-AUR-blue?style=for-the-badge&logo=archlinux)](https://aur.archlinux.org/packages/rvvm-git) [![Build](https://img.shields.io/badge/Build-Make-red?style=for-the-badge)](#building)
 
 ## Building
 Currently builds using GNU Make (recommended) or CMake and is extremely portable.
