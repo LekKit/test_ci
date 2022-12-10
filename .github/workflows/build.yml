@@ -1,11 +1,16 @@
 name: Build
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "staging" ]
   pull_request:
     branches: [ "staging" ]
-  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+env:
+  CFLAGS: -Werror
+  USE_NET: 1
 
 jobs:
   linux-build:
@@ -17,6 +22,7 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v3.1.1
       with:
+        retention-days: 5
         name: rvvm_linux_x86_64
         path: |
           release.linux.x86_64/rvvm_x86_64
@@ -33,6 +39,7 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v3.1.1
       with:
+        retention-days: 5
         name: rvvm_win32_x86_64
         path: |
           release.windows.x86_64/rvvm_x86_64.exe
@@ -49,6 +56,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v3.1.1
         with:
+          retention-days: 5
           name: rvvm_darwin_x86_64
           path: |
             release.darwin.x86_64/rvvm_x86_64
