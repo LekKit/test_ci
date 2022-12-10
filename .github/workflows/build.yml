@@ -8,17 +8,18 @@ on:
     branches: [ "staging" ]
   schedule:
     - cron: "0 0 * * *"
-env:
-  CFLAGS: -Werror
-  USE_NET: 1
+
+#env:
+#  CFLAGS: -Werror
+#  USE_NET: 1
 
 jobs:
   linux-build:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
-    - name: Build Release
-      run: make lib all
+    - name: Build & Analyze
+      run: scan-build --status-bugs make CFLAGS="-Werror -fanalyzer" lib all
     - name: Upload Artifact
       uses: actions/upload-artifact@v3.1.1
       with:
