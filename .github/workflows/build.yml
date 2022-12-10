@@ -18,8 +18,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
-    - name: Build & Analyze
-      run: make CFLAGS="-Werror -fanalyzer" lib all
+    - name: Clang Analyze
+      run: make CC=clang CFLAGS="-Werror --analyze" lib all -B
+    - name: GCC Build & Analyze
+      run: make CFLAGS="-Werror -fanalyzer" lib all -B
     - name: Upload Artifact
       uses: actions/upload-artifact@v3.1.1
       with:
@@ -35,7 +37,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Set up MinGW
       run: sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends gcc-mingw-w64-x86-64-win32
-    - name: Build Release
+    - name: Build & Analyze
       run: make CC=x86_64-w64-mingw32-gcc CFLAGS="-Werror -fanalyzer" all lib
     - name: Upload Artifact
       uses: actions/upload-artifact@v3.1.1
@@ -52,8 +54,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install SDL
         run: brew install sdl12-compat
-      - name: Build Release
-        run: scan-build --status-bugs make CFLAGS="-Werror" all lib
+      - name: Build
+        run: make CFLAGS="-Werror" all lib
       - name: Upload Artifact
         uses: actions/upload-artifact@v3.1.1
         with:
