@@ -33,7 +33,7 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v3.1.1
       with:
-        name: rvvm_win32_x86_64.exe
+        name: rvvm_win32_x86_64
         path: |
           release.windows.x86_64/rvvm_x86_64.exe
           release.windows.x86_64/librvvm.dll
