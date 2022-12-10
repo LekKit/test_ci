@@ -18,10 +18,8 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
-    - name: Clang Analyze
-      run: make CC=clang CFLAGS="-Werror --analyze" lib all -B
-    - name: GCC Build & Analyze
-      run: make CFLAGS="-Werror -fanalyzer" lib all -B
+    - name: Build & Analyze
+      run: make CFLAGS="-Werror -fanalyzer" lib all
     - name: Upload Artifact
       uses: actions/upload-artifact@v3.1.1
       with:
@@ -55,7 +53,7 @@ jobs:
       - name: Install SDL
         run: brew install sdl12-compat
       - name: Build
-        run: make CFLAGS="-Werror" all lib
+        run: make CFLAGS="-Werror" LDFLAGS="-Wl,-Bstatic -lSDL" all lib
       - name: Upload Artifact
         uses: actions/upload-artifact@v3.1.1
         with:
