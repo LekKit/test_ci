@@ -106,6 +106,8 @@ If you wish to use this work as a component of a larger, non-GPL compliant proje
 
 For any form of software distribution, changes made precisely to this work should be made public to comply with either licenses.
 
+Newly added sources preferably should have license header implying under which license the code was contributed.
+
 ## Contributions
 [![PRs are welcome](https://img.shields.io/badge/Pull%20requests-welcome-8957e5?style=for-the-badge&logo=github)](https://github.com/LekKit/RVVM/pulls?q=is%3Apr+is%3Aclosed)
 |                      | Achievments | Working on |
