@@ -98,6 +98,14 @@ Invoke "./rvvm -h" to see extended help.
 | Windows CE | Broken                     | Win32        |
 | Emscripten | -                          | SDL          |
 
+## License
+This work is dual-licensed under **GPL 3.0** OR **MPL 2.0**. You can choose between one of them if you use this work.
+
+If you wish to use this work as a component of a larger, non-GPL compliant project, you are free to do so in any form
+(Static linkage, binary distribution, modules) as long as you comply with the MPL 2.0 license.
+
+For any form of software distribution, changes made precisely to this work should be made public to comply with either licenses.
+
 ## Contributions
 [![PRs are welcome](https://img.shields.io/badge/Pull%20requests-welcome-8957e5?style=for-the-badge&logo=github)](https://github.com/LekKit/RVVM/pulls?q=is%3Apr+is%3Aclosed)
 |                      | Achievments | Working on |
