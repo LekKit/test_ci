@@ -1,11 +1,11 @@
 
 # RVVM - The RISC-V Virtual Machine
-[![version](https://img.shields.io/badge/version-0.5--rc-brightgreen?style=for-the-badge)](#installing) [![](https://img.shields.io/tokei/lines/github.com/LekKit/RVVM?style=for-the-badge)](https://github.com/LekKit/RVVM/graphs/contributors) [![Build](https://img.shields.io/github/workflow/status/LekKit/RVVM/Build?style=for-the-badge)](https://github.com/LekKit/RVVM/actions/workflows/build.yml) [![Codacy grade](https://img.shields.io/codacy/grade/c77cc7499a784cd293fde58641ce3e46?logo=codacy&style=for-the-badge)](https://app.codacy.com/gh/LekKit/RVVM/dashboard)
+[![version](https://img.shields.io/badge/version-0.5--rc-brightgreen?style=for-the-badge)](#installing) [![](https://img.shields.io/tokei/lines/github.com/LekKit/RVVM?style=for-the-badge)](https://github.com/LekKit/RVVM/graphs/contributors) [![Build](https://img.shields.io/github/actions/workflow/status/LekKit/RVVM/build.yml?branch=staging&style=for-the-badge)](https://github.com/LekKit/RVVM/actions/workflows/build.yml) [![Codacy grade](https://img.shields.io/codacy/grade/c77cc7499a784cd293fde58641ce3e46?logo=codacy&style=for-the-badge)](https://app.codacy.com/gh/LekKit/RVVM/dashboard)
 ![RISC-V Logo](https://riscv.org/wp-content/uploads/2018/09/riscv-logo-1.png "The “RISC-V” trade name is a registered trade mark of RISC-V International.")
 
 RISC-V CPU & System software implementation written in С
 
-## What's working
+## 📎 What's working
 [![Demo](https://img.shields.io/badge/Check%20it%20out-WASM%20Demo-red?style=for-the-badge)](https://lekkit.github.io/test/index.html)
 - Passes RISC-V compliance/torture tests for both RV64 & RV32
 - OpenSBI, U-Boot, custom firmwares boot and execute properly
@@ -16,7 +16,7 @@ RISC-V CPU & System software implementation written in С
 - NVMe storage drives
 - Networking (WIP)
 
-## Tell me more...
+## 🚬 Tell me more...
 - Feature-complete RV64IMAFDC instruction set
 - Multicore support (SMP), SV32/SV39/SV48/SV57 MMU
 - Tracing RVJIT with x86_64, ARM64, RISC-V, i386, ARM backends
@@ -34,10 +34,10 @@ RISC-V CPU & System software implementation written in С
 - PS2 Altera (keyboard/mouse), *deprecated*
 - ATA hard drive (PIO / IDE PCI), *deprecated*
 
-## Installing
+## 📦 Installing
 [![Artifacts](https://img.shields.io/badge/BIN-Artifacts-orange?style=for-the-badge)](https://nightly.link/LekKit/RVVM/workflows/build/staging) [![AUR](https://img.shields.io/badge/Arch%20Linux-AUR-blue?style=for-the-badge&logo=archlinux)](https://aur.archlinux.org/packages/rvvm-git) [![Build](https://img.shields.io/badge/Build-Make-red?style=for-the-badge)](#building)
 
-## Building
+## 🛠 Building
 Currently builds using GNU Make (recommended) or CMake and is extremely portable.
 ```
 git clone https://github.com/LekKit/RVVM
@@ -66,7 +66,7 @@ cd build
 ./rvvm -h
 ```
 
-## Running
+## 🚀 Running
 ```
 ./rvvm fw_jump.bin -k u-boot_s.bin -i drive.img -m 2G -smp 2 -res 1280x720 -jitcache 64M
 ```
@@ -86,7 +86,7 @@ Argument explanation:
 ```
 Invoke "./rvvm -h" to see extended help.
 
-## Tested environments
+## 🥁 Tested environments
 | OS         | JIT                        | GUI          |
 |------------|----------------------------|--------------|
 | Linux      | Works                      | X11, SDL     |
@@ -98,7 +98,7 @@ Invoke "./rvvm -h" to see extended help.
 | Windows CE | Broken                     | Win32        |
 | Emscripten | -                          | SDL          |
 
-## License
+## ⚖️ License
 This work is dual-licensed under **GPL 3.0** OR **MPL 2.0**. You can choose between one of them if you use this work.
 
 If you wish to use this work as a component of a larger, non-GPL compliant project, you are free to do so in any form
@@ -108,7 +108,7 @@ For any form of software distribution, changes made precisely to this work shoul
 
 Newly added sources preferably should have license header implying under which license the code was contributed.
 
-## Contributions
+## 🎉 Contributions
 [![PRs are welcome](https://img.shields.io/badge/Pull%20requests-welcome-8957e5?style=for-the-badge&logo=github)](https://github.com/LekKit/RVVM/pulls?q=is%3Apr+is%3Aclosed)
 |                      | Achievments | Working on |
 |----------------------|-------------|------------|
@@ -118,7 +118,7 @@ Newly added sources preferably should have license header implying under which l
 | **0xCatPKG**         | Userspace network, new argument parser <br> Extended testing & portability fixes | HD Audio |
 | **X547**             | Haiku GUI, I2C HID, Userland API assistance | Guest Haiku support, UserlandVM |
 
-## TODO
+## 🔍 TODO
 - Stable TCP buffering, a better NIC
 - Suspend/resume to file, VM migration
 - Sparse block image format, compression/deduplication
