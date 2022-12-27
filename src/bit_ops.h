@@ -19,7 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #include "rvvm_types.h"
 
-// Simple math operations (sign-extend int bits, etc) for internal usage
+// Simple bit operations (sign-extend, etc) for internal usage
 
 /*
 * Sign-extend bits in the lower part of val into signed long
